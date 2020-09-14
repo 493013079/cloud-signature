@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: template
+  session:
+    timeout: 1800
+  servlet:
+    multipart:
+      max-file-size: 500MB
+      max-request-size: 1GB
+  mvc:
+    throw-exception-if-no-handler-found: true
+    static-path-pattern: doc.html
+logging:
+  pattern:
+    console: "%clr(%d{${LOG_DATEFORMAT_PATTERN:yyyy-MM-dd HH:mm:ss.SSS}}){faint} %clr(${LOG_LEVEL_PATTERN:%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40(%logger{34}:%line)){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:%wEx}"

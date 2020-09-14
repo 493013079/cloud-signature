@@ -1,0 +1,4 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.peony.data.config.TemplateDataAutoConfiguration
+org.springframework.boot.env.EnvironmentPostProcessor=\
+com.peony.data.config.TemplateDataEnvironmentPostProcessor

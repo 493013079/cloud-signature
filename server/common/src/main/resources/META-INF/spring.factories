@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.peony.common.web.helper.WebHelperAutoConfiguration,\
+com.peony.common.web.advice.ControllerAdviceAutoConfiguration

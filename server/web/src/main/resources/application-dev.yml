@@ -1,0 +1,29 @@
+dev: true
+server:
+  port: 9098
+  servlet:
+    context-path: /dev
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/cloud_signature?characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    database: 13
+    password: 123456
+
+
+  #swagger:
+  #resources下markdown文件夹中的自定义文档
+#  markdowns: classpath:markdown/*
+#  # 为true时, 在线文档功能关闭, 所有资源都会屏蔽输出
+#  production: true
+#  # 为true时, 开启简单的Basic认证功能, 需要这里的账号密码才能登陆
+#  basic:
+#    enable: true
+#    # Basic认证用户名
+#    username: admin
+#    # Basic认证密码
+#    password: peony

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/server/cloud-signature.iml" filepath="$PROJECT_DIR$/server/cloud-signature.iml" />
+      <module fileurl="file://$PROJECT_DIR$/server/common/common.iml" filepath="$PROJECT_DIR$/server/common/common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/server/data/data.iml" filepath="$PROJECT_DIR$/server/data/data.iml" />
+      <module fileurl="file://$PROJECT_DIR$/server/parent/parent.iml" filepath="$PROJECT_DIR$/server/parent/parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/server/signature/signature.iml" filepath="$PROJECT_DIR$/server/signature/signature.iml" />
+      <module fileurl="file://$PROJECT_DIR$/server/web/web.iml" filepath="$PROJECT_DIR$/server/web/web.iml" />
+    </modules>
+  </component>
+</project>
