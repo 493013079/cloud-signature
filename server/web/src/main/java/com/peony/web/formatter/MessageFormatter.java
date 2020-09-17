@@ -11,6 +11,7 @@ import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Component;
 
 import java.util.Locale;
+import java.util.Optional;
 
 /**
  * @author hk
@@ -28,7 +29,7 @@ public class MessageFormatter implements Formatter<Message> {
         if (id.isEmpty()) {
             throw new RestException(RestErrorCode.WRONG_PARAM);
         }
-        return MessageService.findById(Integer.valueOf(id)).orElseThrow(() -> {
+        return Optional.of(MessageService.findById(Integer.valueOf(id))).orElseThrow(() -> {
             log.error("消息记录不存在, id:{}", id);
             return new RestException(RestErrorCode.MESSAGE_NOT_EXIST);
         });

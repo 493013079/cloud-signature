@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
  * @date 2020/9/8
  */
 @Service
-public class TicketsServiceImpl extends AbstractEntityServiceImpl<Tickets, TicketsPO, String, TicketsFilter> implements TicketsService {
+public class TicketsServiceImpl extends CacheServiceImpl<Tickets, TicketsPO, String, TicketsFilter> implements TicketsService {
 
     public TicketsServiceImpl(TicketsRepository entityRepository,
                               TicketsConvert entityConverter,

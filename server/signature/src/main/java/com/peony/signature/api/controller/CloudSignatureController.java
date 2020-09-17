@@ -145,4 +145,15 @@ public class CloudSignatureController {
         return new ByteArrayInputStream(os.toByteArray());
     }
 
+    /**
+     * 测试缓存
+     */
+    @ApiOperationSupport(author = "", order = 60)
+    @ApiOperation("测试缓存查询")
+    @GetMapping("/tickets/cacheTest/{id}")
+    public RestResult<Object> findByCache(@PathVariable("id") String id) {
+        Tickets tickets = ticketsService.findById(id);
+        return RestResult.successData(tickets);
+    }
+
 }

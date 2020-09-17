@@ -110,7 +110,7 @@ public class UserHelper {
      */
     @Nonnull
     public Optional<Role> getRole(@Nonnull User user) {
-        return Optional.ofNullable(user.getRoleId()).flatMap(roleService::findById);
+        return Optional.ofNullable(user.getRoleId()).map(roleService::findById);
     }
 
     /**

@@ -67,7 +67,8 @@ public class AuthHelper {
         }
 
         Integer userId = Integer.valueOf(userIdString);
-        Optional<User> optionalUser = userService.findById(userId);
+        User user = userService.findById(userId);
+        Optional<User> optionalUser = Optional.of(user);
         refreshCurrentUser(optionalUser.orElse(null));
         return optionalUser;
     }

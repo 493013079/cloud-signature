@@ -11,6 +11,7 @@ import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Component;
 
 import java.util.Locale;
+import java.util.Optional;
 
 /**
  * @author hk
@@ -28,7 +29,7 @@ public class PermissionFormatter implements Formatter<Permission> {
         if (id.isEmpty()) {
             throw new RestException(RestErrorCode.WRONG_PARAM);
         }
-        return PermissionService.findById(Integer.valueOf(id)).orElseThrow(() -> {
+        return Optional.of(PermissionService.findById(Integer.valueOf(id))).orElseThrow(() -> {
             log.error("权限不存在, id:{}", id);
             return new RestException(RestErrorCode.PERMISSION_NOT_EXIST);
         });

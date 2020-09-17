@@ -187,9 +187,9 @@ public class UserController extends BaseController {
         UserFilter userFilter = UserFilter.builder()
                 .account(account)
                 .build();
-        Optional<User> optionalUser = userService.findOne(userFilter);
+        User user = userService.findOne(userFilter);
 
-        if (optionalUser.isPresent()) {
+        if (Optional.ofNullable(user).isPresent()) {
             log.info("用户账号重复：{}", account);
             throw new RestException(RestErrorCode.USER_HAS_EXIST);
         }

@@ -2,6 +2,7 @@ package com.peony.common.entity;
 
 import lombok.Data;
 
+import java.io.Serializable;
 import java.time.ZonedDateTime;
 
 /**
@@ -9,7 +10,7 @@ import java.time.ZonedDateTime;
  * @date 2019/11/27
  */
 @Data
-public abstract class AbstractAuditable implements Auditable {
+public abstract class AbstractAuditable implements Auditable,Serializable {
 
     /**
      * 创建人ID

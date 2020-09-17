@@ -78,7 +78,8 @@ public class AuthController extends BaseController {
         UserFilter userFilter = UserFilter.builder()
                 .account(loginFormVO.getAccount())
                 .build();
-        Optional<User> optionalUser = userService.findOne(userFilter);
+        User user = userService.findOne(userFilter);
+        Optional<User> optionalUser = Optional.ofNullable(user);
 
         // 校验账号
         if (!optionalUser.isPresent()) {
@@ -87,7 +88,6 @@ public class AuthController extends BaseController {
         }
 
         // 校验密码
-        User user = optionalUser.get();
         if (!user.getPassword().equals(userHelper.encodePassword(loginFormVO.getPassword()))) {
             log.warn("密码错误：{}", loginFormVO.getPassword());
             throw new RestException(RestErrorCode.USER_PASSWORD_ERROR);

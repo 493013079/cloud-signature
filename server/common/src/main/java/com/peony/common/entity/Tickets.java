@@ -13,7 +13,8 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-public class Tickets extends AbstractAuditable implements Entity {
+@ToString(callSuper = true)
+public class Tickets extends AbstractAuditable implements Entity{
 
     /**
      * 签字票据ID

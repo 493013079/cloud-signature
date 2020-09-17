@@ -9,6 +9,7 @@ import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Component;
 
 import java.util.Locale;
+import java.util.Optional;
 
 /**
  * @author hk
@@ -25,7 +26,7 @@ public class SignatureFormatter implements Formatter<Signature> {
     @Override
     @NonNull
     public Signature parse(@NonNull String id, @NonNull Locale locale) {
-        return signatureService.findById(id)
+        return Optional.of(signatureService.findById(id))
                 .orElseThrow(() -> new RestException(RestErrorCode.SIGNATURE_NOT_EXIST));
     }
 

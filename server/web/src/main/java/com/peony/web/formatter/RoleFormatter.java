@@ -11,6 +11,7 @@ import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Component;
 
 import java.util.Locale;
+import java.util.Optional;
 
 /**
  * @author hk
@@ -28,7 +29,7 @@ public class RoleFormatter implements Formatter<Role> {
         if (id.isEmpty()) {
             throw new RestException(RestErrorCode.WRONG_PARAM);
         }
-        return RoleService.findById(Integer.valueOf(id)).orElseThrow(() -> {
+        return Optional.of(RoleService.findById(Integer.valueOf(id))).orElseThrow(() -> {
             log.error("角色不存在, id:{}", id);
             return new RestException(RestErrorCode.ROLE_NOT_EXIST);
         });

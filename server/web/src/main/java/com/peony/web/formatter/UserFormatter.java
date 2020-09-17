@@ -11,6 +11,7 @@ import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Component;
 
 import java.util.Locale;
+import java.util.Optional;
 
 /**
  * @author hk
@@ -28,7 +29,7 @@ public class UserFormatter implements Formatter<User> {
         if (id.isEmpty()) {
             throw new RestException(RestErrorCode.WRONG_PARAM);
         }
-        return userService.findById(Integer.valueOf(id)).orElseThrow(() -> {
+        return Optional.of(userService.findById(Integer.valueOf(id))).orElseThrow(() -> {
             log.error("用户不存在,id:{}", id);
             return new RestException(RestErrorCode.USER_NOT_EXIST);
         });

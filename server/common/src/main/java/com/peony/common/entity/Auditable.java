@@ -1,5 +1,7 @@
 package com.peony.common.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import java.time.ZonedDateTime;
 
 /**
@@ -8,6 +10,7 @@ import java.time.ZonedDateTime;
  * @author 辛毅
  * @date 2019/11/27
  */
+@JsonIgnoreProperties({"createdDate","lastModifiedDate"})
 public interface Auditable {
 
     /**

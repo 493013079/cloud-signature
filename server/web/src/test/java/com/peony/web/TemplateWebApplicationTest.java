@@ -95,4 +95,9 @@ public class TemplateWebApplicationTest {
 
     }
 
+    @Test
+    public void testPass12() {
+
+    }
+
 }

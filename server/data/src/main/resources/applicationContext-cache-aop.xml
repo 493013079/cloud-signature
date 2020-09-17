@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+
+
+    http://www.springframework.org/schema/aop
+    http://www.springframework.org/schema/aop/spring-aop-4.2.xsd">
+    <!--定义缓存处理类-->
+    <bean id="redis" class="com.peony.data.aop.CommonCacheRedisAOP"></bean>
+
+    <!--进行aop配置 拦截所有项目的service-->
+    <aop:aspectj-autoproxy proxy-target-class="true"/>
+    <aop:config expose-proxy="true">
+        <!--配置缓存切面-->
+        <aop:aspect id="cacheaop" ref="redis">
+            <aop:pointcut id="cachepointcut" expression="execution(* *..service*..*(..))"/>
+            <aop:before method="doBefore" pointcut-ref="cachepointcut"/>
+            <aop:after-returning method="doAfter" pointcut-ref="cachepointcut"/>
+            <aop:after-throwing method="doThrowing" pointcut-ref="cachepointcut" throwing="ex"/>
+            <aop:around method="doAround" pointcut-ref="cachepointcut"/>
+        </aop:aspect>
+    </aop:config>
+</beans>

@@ -9,6 +9,7 @@ import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Component;
 
 import java.util.Locale;
+import java.util.Optional;
 
 /**
  * @author hk
@@ -25,7 +26,7 @@ public class TicketsFormatter implements Formatter<Tickets> {
     @Override
     @NonNull
     public Tickets parse(@NonNull String id, @NonNull Locale locale) {
-        return ticketsService.findById(id)
+        return Optional.of(ticketsService.findById(id))
                 .orElseThrow(() -> new RestException(RestErrorCode.TICKETS_NOT_EXIST));
     }
 

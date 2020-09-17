@@ -9,6 +9,7 @@ import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Component;
 
 import java.util.Locale;
+import java.util.Optional;
 
 /**
  * @author hk
@@ -26,7 +27,7 @@ public class OrganizationFormatter implements Formatter<Organization> {
     @NonNull
     public Organization parse(@NonNull String id, @NonNull Locale locale) {
         Integer organizationId = Integer.valueOf(id);
-        return OrganizationService.findById(organizationId)
+        return Optional.of(OrganizationService.findById(organizationId))
                 .orElseThrow(() -> new RestException(RestErrorCode.ORGANIZATION_NOT_EXIST));
     }
 

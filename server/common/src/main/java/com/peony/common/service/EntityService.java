@@ -7,7 +7,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.lang.NonNull;
 
 import java.util.List;
-import java.util.Optional;
 
 /**
  * @author hk
@@ -51,7 +50,7 @@ public interface EntityService<ENTITY extends Entity, ID, FILTER extends EntityF
      * @return 实体
      */
     @NonNull
-    Optional<ENTITY> findById(@NonNull ID id);
+    ENTITY findById(@NonNull ID id);
 
     /**
      * 分页查询实体
@@ -96,7 +95,7 @@ public interface EntityService<ENTITY extends Entity, ID, FILTER extends EntityF
      * @return 实体
      */
     @NonNull
-    Optional<ENTITY> findOne(@NonNull FILTER entityFilter);
+    ENTITY findOne(@NonNull FILTER entityFilter);
 
     /**
      * 查询数量
